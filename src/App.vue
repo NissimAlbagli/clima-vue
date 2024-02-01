@@ -2,6 +2,7 @@
   import Formulario from './components/Formulario.vue';
   import useClima from './composables/useClima';
   import Clima from './components/Clima.vue';
+  import Spinner from './components/Spinner.vue';
 
   const { obtenerClima, clima, mostrarClima } = useClima();
 
@@ -14,6 +15,7 @@
       <Formulario 
         @obtener-clima="obtenerClima"
       />
+      <Spinner />
       <Clima 
         v-if="mostrarClima"
         :clima="clima"
