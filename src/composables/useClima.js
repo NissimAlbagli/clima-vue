@@ -4,10 +4,13 @@ import axios from 'axios';
 export default function useClima() {
 
     const clima = ref({});
+    const cargando = ref(false)
 
     const obtenerClima = async ({ ciudad, pais }) => {
         // Importar API key
         const key = import.meta.env.VITE_API_KEY;
+        cargando.value = true;
+        clima.value = {};
         try {
             
             // Obtener la latitud y longitud
@@ -20,6 +23,8 @@ export default function useClima() {
             clima.value = resultado;
         } catch (error) {
             console.log(error);
+        } finally {
+            cargando.value = false;
         }
         
     }
@@ -34,6 +39,7 @@ export default function useClima() {
         obtenerClima,
         clima,
         mostrarClima,
-        formatearTemperatura
+        formatearTemperatura,
+        cargando
     }
 }
