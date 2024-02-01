@@ -65,6 +65,10 @@ body {
   padding: 1rem;
   margin-top: 2rem;
 }
+.formulario option {
+  color: black;
+}
+
 .campo ::placeholder { 
   color: var(--blanco);
   opacity: 1; 
